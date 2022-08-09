@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var model: Model
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        List(model.users, id: \.id) { user in
+            Text(user.name)
+        }
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(model: Model())
     }
 }
