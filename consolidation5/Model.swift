@@ -7,6 +7,12 @@
 
 import Foundation
 
+// Way this works:
+// init will attempt to load data from web.
+//  if success, store data to CoreData
+//  if fail, attempt to load data from CoreData
+//      if fail, terminate program
+
 class Model: ObservableObject {
     @Published public var users: [User]
     

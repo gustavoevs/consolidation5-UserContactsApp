@@ -16,6 +16,10 @@
 		EC35B72028A28C56000E5BDC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC35B71F28A28C56000E5BDC /* Model.swift */; };
 		EC4D6BAC28A3C9D000D5272B /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4D6BAB28A3C9D000D5272B /* UserView.swift */; };
 		EC57F9A028A438A300569E4C /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC57F99E28A438A300569E4C /* CoreDataModel.xcdatamodeld */; };
+		EC57F9A528A43E4800569E4C /* CachedFriend+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57F9A128A43E4700569E4C /* CachedFriend+CoreDataClass.swift */; };
+		EC57F9A628A43E4800569E4C /* CachedFriend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57F9A228A43E4700569E4C /* CachedFriend+CoreDataProperties.swift */; };
+		EC57F9A728A43E4800569E4C /* CachedUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57F9A328A43E4800569E4C /* CachedUser+CoreDataClass.swift */; };
+		EC57F9A828A43E4800569E4C /* CachedUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57F9A428A43E4800569E4C /* CachedUser+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +33,10 @@
 		EC35B71F28A28C56000E5BDC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		EC4D6BAB28A3C9D000D5272B /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		EC57F99F28A438A300569E4C /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		EC57F9A128A43E4700569E4C /* CachedFriend+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CachedFriend+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EC57F9A228A43E4700569E4C /* CachedFriend+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CachedFriend+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EC57F9A328A43E4800569E4C /* CachedUser+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CachedUser+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EC57F9A428A43E4800569E4C /* CachedUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CachedUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +69,10 @@
 		EC35B70C28A28288000E5BDC /* consolidation5 */ = {
 			isa = PBXGroup;
 			children = (
+				EC57F9A128A43E4700569E4C /* CachedFriend+CoreDataClass.swift */,
+				EC57F9A228A43E4700569E4C /* CachedFriend+CoreDataProperties.swift */,
+				EC57F9A328A43E4800569E4C /* CachedUser+CoreDataClass.swift */,
+				EC57F9A428A43E4800569E4C /* CachedUser+CoreDataProperties.swift */,
 				EC4D6BAB28A3C9D000D5272B /* UserView.swift */,
 				EC35B70D28A28288000E5BDC /* consolidation5App.swift */,
 				EC57F99E28A438A300569E4C /* CoreDataModel.xcdatamodeld */,
@@ -153,11 +165,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC35B72028A28C56000E5BDC /* Model.swift in Sources */,
+				EC57F9A628A43E4800569E4C /* CachedFriend+CoreDataProperties.swift in Sources */,
+				EC57F9A828A43E4800569E4C /* CachedUser+CoreDataProperties.swift in Sources */,
 				EC4D6BAC28A3C9D000D5272B /* UserView.swift in Sources */,
 				EC35B71028A28288000E5BDC /* ContentView.swift in Sources */,
 				EC35B70E28A28288000E5BDC /* consolidation5App.swift in Sources */,
 				EC35B71C28A282CB000E5BDC /* User.swift in Sources */,
+				EC57F9A728A43E4800569E4C /* CachedUser+CoreDataClass.swift in Sources */,
 				EC57F9A028A438A300569E4C /* CoreDataModel.xcdatamodeld in Sources */,
+				EC57F9A528A43E4800569E4C /* CachedFriend+CoreDataClass.swift in Sources */,
 				EC35B71E28A283DC000E5BDC /* Friend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
