@@ -15,6 +15,7 @@
 		EC35B71E28A283DC000E5BDC /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC35B71D28A283DC000E5BDC /* Friend.swift */; };
 		EC35B72028A28C56000E5BDC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC35B71F28A28C56000E5BDC /* Model.swift */; };
 		EC4D6BAC28A3C9D000D5272B /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4D6BAB28A3C9D000D5272B /* UserView.swift */; };
+		EC57F9A028A438A300569E4C /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC57F99E28A438A300569E4C /* CoreDataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		EC35B71D28A283DC000E5BDC /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		EC35B71F28A28C56000E5BDC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		EC4D6BAB28A3C9D000D5272B /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		EC57F99F28A438A300569E4C /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			children = (
 				EC4D6BAB28A3C9D000D5272B /* UserView.swift */,
 				EC35B70D28A28288000E5BDC /* consolidation5App.swift */,
+				EC57F99E28A438A300569E4C /* CoreDataModel.xcdatamodeld */,
 				EC35B70F28A28288000E5BDC /* ContentView.swift */,
 				EC35B71B28A282CB000E5BDC /* User.swift */,
 				EC35B71D28A283DC000E5BDC /* Friend.swift */,
@@ -154,6 +157,7 @@
 				EC35B71028A28288000E5BDC /* ContentView.swift in Sources */,
 				EC35B70E28A28288000E5BDC /* consolidation5App.swift in Sources */,
 				EC35B71C28A282CB000E5BDC /* User.swift in Sources */,
+				EC57F9A028A438A300569E4C /* CoreDataModel.xcdatamodeld in Sources */,
 				EC35B71E28A283DC000E5BDC /* Friend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,6 +357,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EC57F99E28A438A300569E4C /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EC57F99F28A438A300569E4C /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = EC57F99F28A438A300569E4C /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EC35B70228A28288000E5BDC /* Project object */;
 }
