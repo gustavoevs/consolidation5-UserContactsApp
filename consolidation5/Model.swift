@@ -17,7 +17,11 @@ class Model: ObservableObject {
         }
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
-            if let decodedResponse = try? JSONDecoder().decode([User].self, from: data) {
+            
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+            
+            if let decodedResponse = try? decoder.decode([User].self, from: data) {
                 users = decodedResponse
             } else {
                 fatalError("Failed to decode JSON")

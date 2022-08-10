@@ -77,15 +77,16 @@ struct UserView: View {
                                            contactEntry(key: "Address", value: user.address),
                                            contactEntry(key: "Email", value: user.email)])
                 
-                groupEntriesView(content: [contactEntry(key: "Join Date", value: user.registered),
+                groupEntriesView(content: [contactEntry(key: "Join Date", value: user.registered.formatted(date: .complete, time: .omitted)),
                                            contactEntry(key: "About", value: user.about)])
                 
                 // section friends list
                 HStack {
                     VStack (alignment: .leading) {
                         Text("Friends")
-                            .font(.subheadline.bold())
+                            .font(.headline.bold())
                         ForEach(user.friends) { friend in
+                            RectangleDivider()
                             Text(friend.name)
                                 .foregroundColor(.primary.opacity(0.7))
                         }
@@ -106,6 +107,6 @@ struct UserView: View {
 
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
-        UserView(user: User(id: "123345", isActive: true, name: "Gustavo Verdugo", age: 20, company: "BestApp Company", email: "superman@bestapp.com", address: "12 main St", about: "Best dude ever, so much fun and so hansome. OMG I just can't", registered: "12 August 2020", tags: ["hunky", "smart", "visionary"], friends: [Friend(id: "293849", name: "Daan the Man"), Friend(id: "666", name: "Keanu Reeves")]))
+        UserView(user: User(id: "123345", isActive: true, name: "Gustavo Verdugo", age: 20, company: "BestApp Company", email: "superman@bestapp.com", address: "12 main St", about: "Best dude ever, so much fun and so hansome. OMG I just can't", registered: Date.now, tags: ["hunky", "smart", "visionary"], friends: [Friend(id: "293849", name: "Daan the Man"), Friend(id: "666", name: "Keanu Reeves")]))
     }
 }
