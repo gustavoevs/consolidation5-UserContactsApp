@@ -53,45 +53,51 @@ struct UserView: View {
     
     var body: some View {
         VStack {
-//            Image("stefan-stefancik")
-//                .resizable()
-//                .frame(width: 200)
-//                .clipShape(Circle())
-//            // Too ambitious
+            VStack {
+//                GeometryReader { geometry in
+//                    ZStack {
+//                        Circle()
+//                            .frame(height: geometry.size.height)
+//                            .foregroundColor(Color.secondary)
+//                        Text("G")
+//                            .font(.custom("Georgia", size: geometry.size.height*0.5))
+//                            .foregroundColor(Color.primary)
+//                    }
+//                }
+//                .frame(maxHeight: 100)
+                
+                Text(user.name)
+                    .font(.largeTitle)
+                Text("\(user.age) Years Old")
+                    .font(.subheadline)
+            }
             
-            // Image
-            // Name
-            Text(user.name)
-                .font(.largeTitle)
-            
-            Group {
+            ScrollView {
+                groupEntriesView(content: [contactEntry(key: "Company", value: user.company),
+                                           contactEntry(key: "Address", value: user.address),
+                                           contactEntry(key: "Email", value: user.email)])
+                
+                groupEntriesView(content: [contactEntry(key: "Join Date", value: user.registered),
+                                           contactEntry(key: "About", value: user.about)])
+                
+                // section friends list
                 HStack {
-                    Text(user.address)
+                    VStack (alignment: .leading) {
+                        Text("Friends")
+                            .font(.subheadline.bold())
+                        ForEach(user.friends) { friend in
+                            Text(friend.name)
+                                .foregroundColor(.primary.opacity(0.7))
+                        }
+                    }
                     Spacer()
                 }
-            }
                 .fixedSize(horizontal: false, vertical: true)
                 .multilineTextAlignment(.leading)
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color.secondary.opacity(0.2)).shadow(radius: 1))
                 .padding()
-            
-            groupEntriesView(content: [contactEntry(key: "Address", value: user.address),
-                                       contactEntry(key: "Email", value: user.address)])
-            
-            // Company
-            // active or not
-            
-            // Contact
-                // email
-                // address
-            
-            
-            // section about
-            // section join date
-            
-            // section friends list
-            
+            }
         }
         .navigationTitle("Contact Info")
         .navigationBarTitleDisplayMode(.inline)
