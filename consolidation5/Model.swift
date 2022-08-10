@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct networkResponse: Codable {
-    var Users: [User]
-}
-
 class Model: ObservableObject {
     @Published public var users: [User]
     

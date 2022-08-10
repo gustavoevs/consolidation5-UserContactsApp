@@ -11,8 +11,25 @@ struct ContentView: View {
     @ObservedObject var model: Model
     
     var body: some View {
-        List(model.users, id: \.id) { user in
-            Text(user.name)
+        NavigationView {
+            List(model.users, id: \.id) { user in
+                NavigationLink {
+                    UserView(user: user)
+                } label: {
+                    HStack {
+                        Text(user.name)
+                        Spacer()
+                        HStack {
+                            Text(user.isActive ? "Online" : "Offline")
+                                .font(.footnote)
+                            Circle()
+                                .foregroundColor(user.isActive ? .green : .red)
+                                .frame(width: 10)
+                        }
+                    }
+                }
+            }
+            .navigationTitle("FriendFace")
         }
     }
     
