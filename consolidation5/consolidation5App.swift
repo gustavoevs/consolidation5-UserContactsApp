@@ -9,11 +9,12 @@ import SwiftUI
 
 @main
 struct consolidation5App: App {
-    private let model = Model()
+    let model = Model()
     
     var body: some Scene {
         WindowGroup {
             ContentView(model: model)
+                .environment(\.managedObjectContext, model.container.viewContext)
         }
     }
 }

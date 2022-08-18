@@ -13,19 +13,22 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            List(users, id: \.id) { user in
-                NavigationLink {
-                    UserView(user: user)
-                } label: {
-                    HStack {
-                        Text(user.wrappedName)
-                        Spacer()
+            VStack {
+                Text("Number of Contacts: \(users.count)")
+                List(users, id: \.id) { user in
+                    NavigationLink {
+                        UserView(user: user)
+                    } label: {
                         HStack {
-                            Text(user.isActive ? "Online" : "Offline")
-                                .font(.footnote)
-                            Circle()
-                                .foregroundColor(user.isActive ? .green : .red)
-                                .frame(width: 10)
+                            Text(user.wrappedName)
+                            Spacer()
+                            HStack {
+                                Text(user.isActive ? "Online" : "Offline")
+                                    .font(.footnote)
+                                Circle()
+                                    .foregroundColor(user.isActive ? .green : .red)
+                                    .frame(width: 10)
+                            }
                         }
                     }
                 }

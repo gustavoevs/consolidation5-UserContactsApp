@@ -44,7 +44,9 @@ class Model {
                 try await loadDataFromURL()
                 // Save to CoreData
                 do {
-                    try saveDataToCoreData(users: usersDataFromJSON)
+                    try await MainActor.run {
+                        try saveDataToCoreData(users: usersDataFromJSON)
+                    }
                 } catch {
                     fatalError("DataLoadError.CoreDataSaveFail")
                 }
@@ -81,7 +83,7 @@ class Model {
     // This function is ugly but really didn't know how to throw the error from inside the call to loadPersistentStores and moving on to other things.
     func initCoreData() throws {
         var throwError = false
-        container.loadPersistentStores { description, error in
+        container.loadPersistentStores { (description, error) in
             if let error = error {
                 print("Core Data failed to load: \(error.localizedDescription)")
                 throwError = true
