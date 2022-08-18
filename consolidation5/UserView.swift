@@ -49,7 +49,7 @@ struct groupEntriesView: View {
 }
 
 struct UserView: View {
-    var user: User
+    var user: CachedUser
     
     var body: some View {
         VStack {
@@ -66,28 +66,28 @@ struct UserView: View {
 //                }
 //                .frame(maxHeight: 100)
                 
-                Text(user.name)
+                Text(user.wrappedName)
                     .font(.largeTitle)
                 Text("\(user.age) Years Old")
                     .font(.subheadline)
             }
             
             ScrollView {
-                groupEntriesView(content: [contactEntry(key: "Company", value: user.company),
-                                           contactEntry(key: "Address", value: user.address),
-                                           contactEntry(key: "Email", value: user.email)])
+                groupEntriesView(content: [contactEntry(key: "Company", value: user.wrappedCompany),
+                                           contactEntry(key: "Address", value: user.wrappedAddress),
+                                           contactEntry(key: "Email", value: user.wrappedEmail)])
                 
-                groupEntriesView(content: [contactEntry(key: "Join Date", value: user.registered.formatted(date: .complete, time: .omitted)),
-                                           contactEntry(key: "About", value: user.about)])
+                groupEntriesView(content: [contactEntry(key: "Join Date", value: user.wrappedRegistered.formatted(date: .complete, time: .omitted)),
+                                           contactEntry(key: "About", value: user.wrappedAbout)])
                 
                 // section friends list
                 HStack {
                     VStack (alignment: .leading) {
                         Text("Friends")
                             .font(.headline.bold())
-                        ForEach(user.friends) { friend in
+                        ForEach(user.friendsArray) { friend in
                             RectangleDivider()
-                            Text(friend.name)
+                            Text(friend.wrappedName)
                                 .foregroundColor(.primary.opacity(0.7))
                         }
                     }
@@ -105,8 +105,8 @@ struct UserView: View {
     }
 }
 
-struct UserView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserView(user: User(id: "123345", isActive: true, name: "Gustavo Verdugo", age: 20, company: "BestApp Company", email: "superman@bestapp.com", address: "12 main St", about: "Best dude ever, so much fun and so hansome. OMG I just can't", registered: Date.now, tags: ["hunky", "smart", "visionary"], friends: [Friend(id: "293849", name: "Daan the Man"), Friend(id: "666", name: "Keanu Reeves")]))
-    }
-}
+//struct UserView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UserView(user: User(id: "123345", isActive: true, name: "Gustavo Verdugo", age: 20, company: "BestApp Company", email: "superman@bestapp.com", address: "12 main St", about: "Best dude ever, so much fun and so hansome. OMG I just can't", registered: Date.now, tags: ["hunky", "smart", "visionary"], friends: [Friend(id: "293849", name: "Daan the Man"), Friend(id: "666", name: "Keanu Reeves")]))
+//    }
+//}

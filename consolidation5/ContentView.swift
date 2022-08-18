@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var model: Model
+    var model: Model
+    @FetchRequest(sortDescriptors: []) var users: FetchedResults<CachedUser>
     
     var body: some View {
         NavigationView {
-            List(model.users, id: \.id) { user in
+            List(users, id: \.id) { user in
                 NavigationLink {
                     UserView(user: user)
                 } label: {
                     HStack {
-                        Text(user.name)
+                        Text(user.wrappedName)
                         Spacer()
                         HStack {
                             Text(user.isActive ? "Online" : "Offline")
