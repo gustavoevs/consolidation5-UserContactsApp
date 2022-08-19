@@ -85,7 +85,7 @@ struct UserView: View {
                     VStack (alignment: .leading) {
                         Text("Friends")
                             .font(.headline.bold())
-                        ForEach(user.friendsArray) { friend in
+                        ForEach(user.friends.sorted(by: {$0.wrappedName < $1.wrappedName}), id:\.id) { friend in
                             RectangleDivider()
                             Text(friend.wrappedName)
                                 .foregroundColor(.primary.opacity(0.7))

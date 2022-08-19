@@ -89,26 +89,30 @@ class Model {
     
     func saveDataToCoreData(users: [User]) throws {
         for user in users {
-            let mocUser = CachedUser(context: container.viewContext)
-            mocUser.id = user.id
-            mocUser.isActive = user.isActive
-            mocUser.name = user.name
-            mocUser.age = Int16(user.age)
-            mocUser.company = user.company
-            mocUser.email = user.email
-            mocUser.address = user.address
-            mocUser.about = user.about
-            mocUser.registered = user.registered
-            //mocUser.tags = user.tags // TODO: Deal with this later
-            var friends = [CachedFriend]()
-            for friend in user.friends {
-                let mocFriend = CachedFriend(context: container.viewContext)
-                mocFriend.id = friend.id
-                mocFriend.name = friend.name
-                friends.append(mocFriend)
-            }
-            mocUser.friends = NSSet(array: friends)
-            try container.viewContext.save()
+            CachedUser.createUser(user: user, context: container.viewContext)
+//            let mocUser = CachedUser(context: container.viewContext)
+//            mocUser.id = user.id
+//            mocUser.isActive = user.isActive
+//            mocUser.name = user.name
+//            mocUser.age = Int16(user.age)
+//            mocUser.company = user.company
+//            mocUser.email = user.email
+//            mocUser.address = user.address
+//            mocUser.about = user.about
+//            mocUser.registered = user.registered
+//            //mocUser.tags = user.tags // TODO: Deal with this later
+//            var friends = [CachedFriend]()
+//            for friend in user.friends {
+//                let mocFriend = CachedFriend(context: container.viewContext)
+//                mocFriend.id = friend.id
+//                mocFriend.name = friend.name
+//                friends.append(mocFriend)
+//            }
+//            mocUser.friends = NSSet(array: friends)
+//            try container.viewContext.save()
         }
     }
 }
+
+
+

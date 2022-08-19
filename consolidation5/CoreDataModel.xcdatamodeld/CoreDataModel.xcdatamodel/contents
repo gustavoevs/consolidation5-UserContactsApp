@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="CachedFriend" representedClassName="CachedFriend" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="String"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CachedUser" inverseName="friends" inverseEntity="CachedUser"/>
-        <uniquenessConstraints>
-            <uniquenessConstraint>
-                <constraint value="id"/>
-            </uniquenessConstraint>
-        </uniquenessConstraints>
-    </entity>
     <entity name="CachedUser" representedClassName="CachedUser" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String"/>
         <attribute name="address" optional="YES" attributeType="String"/>
@@ -21,7 +11,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="registered" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="tags" optional="YES" attributeType="String"/>
-        <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CachedFriend" inverseName="user" inverseEntity="CachedFriend"/>
+        <relationship name="friends_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CachedUser" inverseName="friends_" inverseEntity="CachedUser"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>
@@ -30,6 +20,5 @@
     </entity>
     <elements>
         <element name="CachedUser" positionX="-63" positionY="-18" width="128" height="194"/>
-        <element name="CachedFriend" positionX="-54" positionY="72" width="128" height="74"/>
     </elements>
 </model>
