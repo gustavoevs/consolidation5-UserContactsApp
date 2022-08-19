@@ -12,8 +12,6 @@ import CoreData
 // Way this works:
 // init will attempt to load data from web.
 //  if success, store data to CoreData
-//  if fail, attempt to load data from CoreData
-//      if fail, terminate program
 
 class Model {
     let container = NSPersistentContainer(name: "CoreDataModel")
@@ -27,11 +25,6 @@ class Model {
         case CoreDataSaveFail
     }
     
-    // Way this works:
-    // init will attempt to load data from web.
-    //  if success, store data to CoreData
-    //  if fail, attempt to load data from CoreData
-    //      if fail, terminate program
     init() {
         usersDataFromJSON = [User]()
         do {
@@ -53,9 +46,6 @@ class Model {
             } catch {
                 print("Network Data Load Fail")
             }
-            
-            // Lading data from CoreData will be handled in View
-//            loadDataFromCoreData()
         }
     }
     
@@ -121,11 +111,4 @@ class Model {
             try container.viewContext.save()
         }
     }
-    
-    // Seems like @FetchRequest not available outside Views
-    // Solution is complex, so gonna finish this project and move on.
-//    func loadDataFromCoreData() {
-//
-//    }
-    
 }

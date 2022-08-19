@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var model: Model
-    @FetchRequest(sortDescriptors: []) var users: FetchedResults<CachedUser>
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)]) var users: FetchedResults<CachedUser>
     
     var body: some View {
         NavigationView {
