@@ -87,8 +87,12 @@ struct UserView: View {
                             .font(.headline.bold())
                         ForEach(user.friends.sorted(by: {$0.wrappedName < $1.wrappedName}), id:\.id) { friend in
                             RectangleDivider()
-                            Text(friend.wrappedName)
-                                .foregroundColor(.primary.opacity(0.7))
+                            NavigationLink {
+                                UserView(user:friend)
+                            } label: {
+                                Text(friend.wrappedName)
+                                    .foregroundColor(.primary.opacity(0.7))
+                            }
                         }
                     }
                     Spacer()

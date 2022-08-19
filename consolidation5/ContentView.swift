@@ -10,24 +10,32 @@ import SwiftUI
 struct ContentView: View {
     var model: Model
     @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)]) var users: FetchedResults<CachedUser>
+    @State private var onlineOnly = false
     
     var body: some View {
         NavigationView {
             VStack {
-                Text("Number of Contacts: \(users.count)")
+                Toggle(isOn: $onlineOnly.animation()) {
+                    Text("Show Online Friends Only")
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                }
+                .padding(.horizontal)
+                    
                 List(users, id: \.id) { user in
-                    NavigationLink {
-                        UserView(user: user)
-                    } label: {
-                        HStack {
-                            Text(user.wrappedName)
-                            Spacer()
+                    if ((onlineOnly && user.isActive) || !onlineOnly) {
+                        NavigationLink {
+                            UserView(user: user)
+                        } label: {
                             HStack {
-                                Text(user.isActive ? "Online" : "Offline")
-                                    .font(.footnote)
-                                Circle()
-                                    .foregroundColor(user.isActive ? .green : .red)
-                                    .frame(width: 10)
+                                Text(user.wrappedName)
+                                Spacer()
+                                HStack {
+                                    Text(user.isActive ? "Online" : "Offline")
+                                        .font(.footnote)
+                                    Circle()
+                                        .foregroundColor(user.isActive ? .green : .red)
+                                        .frame(width: 10)
+                                }
                             }
                         }
                     }
